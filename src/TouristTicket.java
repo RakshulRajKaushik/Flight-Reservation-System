@@ -1,16 +1,28 @@
 
 public class TouristTicket {
 
-	public String hoteladdress;
-	public String[] selectedTouristLocation=new String[5];
+	private String hoteladdress;
+	private String[] selectedTouristLocation=new String[5];
 	
 	public TouristTicket(String hoteladdress) {
 		super();
-		this.hoteladdress = hoteladdress;
+		this.setHoteladdress(hoteladdress);
 	}
 	
-	public  String getHotelAddress() {
-		return "";
+	public String getHoteladdress() {
+		return hoteladdress;
+	}
+
+	public void setHoteladdress(String hoteladdress) {
+		this.hoteladdress = hoteladdress;
+	}
+
+	public String[] getSelectedTouristLocation() {
+		return selectedTouristLocation;
+	}
+
+	public void setSelectedTouristLocation(String[] selectedTouristLocation) {
+		this.selectedTouristLocation = selectedTouristLocation;
 	}
 	
 	public String[] getTouristLocations() {
