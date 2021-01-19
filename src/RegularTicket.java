@@ -1,10 +1,10 @@
 
-public class RegularTicket {
+public class RegularTicket extends Ticket {
 
 	private String specialServices; 
 	
 	public RegularTicket(String specialServices) {
-		super();
+		super(specialServices, specialServices, specialServices, getFlight(), specialServices, specialServices, getPassenger(), specialServices, getPrice(), isCancelled());
 		this.setSpecialServices(specialServices);
 	}
 	

@@ -1,11 +1,11 @@
 
-public class TouristTicket {
+public class TouristTicket extends Ticket {
 
 	private String hoteladdress;
 	private String[] selectedTouristLocation=new String[5];
 	
 	public TouristTicket(String hoteladdress) {
-		super();
+		super(hoteladdress, hoteladdress, hoteladdress, getFlight(), hoteladdress, hoteladdress, getPassenger(), hoteladdress, getPrice(), isCancelled());
 		this.setHoteladdress(hoteladdress);
 	}
 	
