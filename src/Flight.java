@@ -46,14 +46,17 @@ public class Flight {
 	}
 
 	public String getFlightsDetails() {
-		return "";
+		return "Airline:"+this.airline+" Flight Number: "+this.flightNumber+" Capacity: "+this.capacity+" Seats booked till now: "+this.bookedSeats;
 	}
 	
 	public boolean checkAvailability() {
-		return true;
+		if(this.bookedSeats==this.capacity)
+			return false;
+		else
+			return true;
 	}
 	
 	public void incrementBookingCounter() {
-		
+		bookedSeats++;
 	}
 }

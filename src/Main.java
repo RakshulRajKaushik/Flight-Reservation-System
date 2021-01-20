@@ -15,17 +15,16 @@ public class Main {
 			System.out.println(ticket.getPnr());
 		}
 	public static void main(String[] args) {
+		Flight f1=new Flight("IG12457","Indigo",100,90);
+		Flight f2=new Flight("AI25457","Air India",300,250);
 		
-		TouristTicket t=new TouristTicket("fhg");
-		RegularTicket r=new RegularTicket("spa");
+		Passenger p1=new Passenger("Lake Street","Kota","Rajasthan","Rohit","9460946012","ro5hit@gmail.com");
+		Passenger p2=new Passenger("Dalal Street","Nagpur","MP","Rohan","9914173545","rohan54@gmail.com");
+		
+		TouristTicket t=new TouristTicket("PNR1234","Delhi","Goa",f1,"1300","1500",p1,"A50",500.0f,false,"Hotel Red Velvet");
+		RegularTicket r=new RegularTicket("PNR5678","Delhi","Mumbai",f2,"0900","1000",p2,"W32",400.25f,false,"Hotel Paradise");
+		
 		printTicketDetails(t);
 		printTicketDetails(r);
-		
-		
-		
-		// TODO Auto-generated method stub
-//		Flight f=new Flight("2153", "zet", 100, 25);
-//		Passenger p=new Passenger(53);
-//		Ticket t=new Ticket("5456", "delhi", "goa",FlightObject, "10Am", "10pm",PassengerObject, "5465f",500.50f,false);
 	}
 }

@@ -37,11 +37,33 @@ public class Passenger {
 		}
 
 		public String getContactDetails() {
-			return "";
+			return "Name: "+getName()+" Phone: "+getPhone()+" Email: "+getEmail();
 		}
 		
 		public void updateContactDetails(String contactDetail) {
+			String temp="";
+			int i=0;
+			while(contactDetail.charAt(i)!=' ') {
+				temp+=contactDetail.charAt(i);
+				i++;
+			}
+			setName(temp);
+			temp="";
+			i++;
 			
+			while(contactDetail.charAt(i)!=' ') {
+				temp+=contactDetail.charAt(i);
+				i++;
+			}
+			setPhone(temp);
+			temp=""; 
+			i++;
+			
+			while(i!=contactDetail.length()) {
+				temp+=contactDetail.charAt(i);
+				i++;
+			}
+			setEmail(temp);
 		}
 	}
 	
@@ -81,11 +103,33 @@ public class Passenger {
 		}
 
 		public String getAddressDetails() {
-			return "";
+			return "Street: "+getStreet()+" City: "+getCity()+" State: "+getState();
 		}
 		
 		public void updateAddressDetails(String addressDetail) {
+			String temp="";
+			int i=0;
+			while(addressDetail.charAt(i)!=' ') {
+				temp+=addressDetail.charAt(i);
+				i++;
+			}
+			setStreet(temp);
+			temp="";
+			i++;
 			
+			while(addressDetail.charAt(i)!=' ') {
+				temp+=addressDetail.charAt(i);
+				i++;
+			}
+			setCity(temp);
+			temp=""; 
+			i++;
+			
+			while(addressDetail.charAt(i)!=' ') {
+				temp+=addressDetail.charAt(i);
+				i++;
+			}
+			setState(temp);
 		}
 	}
 	
@@ -95,45 +139,38 @@ public class Passenger {
 	
 	private static int idCounter;
 	
-	public Passenger(Address address, Contact contact) {
+	public Passenger(String street, String city, String state, String name, String phone, String email) {
 		this.id = idCounter;
 		idCounter++;
-		this.address = address;
-		this.contact = contact;
+		address=new Address(street,city,state);
+		contact=new Contact(name,phone,email);
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Address getAddress() {
-		return address;
+	public String getAddress() {
+		return address.getAddressDetails();
 	}
 
 	public void setAddress(Address address) {
-		this.address = address;
+		String str="";
+		str+=address.street+" "+address.city+" "+address.state;
+		this.address.updateAddressDetails(str);
 	}
 
-	public Contact getContact() {
-		return contact;
+	public String getContact() {
+		return contact.getContactDetails();
 	}
 
 	public void setContact(Contact contact) {
-		this.contact = contact;
+		String str="";
+		str+=contact.name+" "+contact.phone+" "+contact.email;
+		this.contact.updateContactDetails(str);
 	}
 	
 	public int getPassengerCount() {
 		return idCounter;
-	}
-	
-//	public Contact getContact() {
-//		
-//	}
-//	public Address getAddress() {
-//			
-//	}	
+	}	
 }

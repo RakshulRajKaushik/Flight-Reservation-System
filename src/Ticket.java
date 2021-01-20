@@ -1,16 +1,16 @@
 
 public abstract class Ticket {
 
-	private static String pnr;
-	private static String from; 
-	private static String to;
-	private static Flight flight;
-	private static String departureDateTime; 
-	private static String arrivalDateTime; 
-	private static Passenger passenger; 
-	private static String setaNo; 
-	private static float price;
-	private static boolean cancelled;
+	private  String pnr;
+	private  String from; 
+	private  String to;
+	private  Flight flight;
+	private  String departureDateTime; 
+	private  String arrivalDateTime; 
+	private  Passenger passenger; 
+	private  String setaNo; 
+	private  float price;
+	private  boolean cancelled;
 	
 	public Ticket(String pnr, String from, String to,Flight flight, String departureDateTime, String arrivalDateTime,
 			Passenger passenger,String setaNo, float price, boolean cancelled) {
@@ -26,9 +26,7 @@ public abstract class Ticket {
 		this.setCancelled(cancelled);
 	}
 	
-	
-
-	public static String getPnr() {
+	public String getPnr() {
 		return pnr;
 	}
 
@@ -36,7 +34,7 @@ public abstract class Ticket {
 		this.pnr = pnr;
 	}
 
-	public static String getFrom() {
+	public String getFrom() {
 		return from;
 	}
 
@@ -44,7 +42,7 @@ public abstract class Ticket {
 		this.from = from;
 	}
 
-	public static String getTo() {
+	public String getTo() {
 		return to;
 	}
 
@@ -52,15 +50,11 @@ public abstract class Ticket {
 		this.to = to;
 	}
 
-	public static Flight getFlight() {
-		return flight;
-	}
-
 	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
 
-	public static String getDepartureDateTime() {
+	public String getDepartureDateTime() {
 		return departureDateTime;
 	}
 
@@ -68,7 +62,7 @@ public abstract class Ticket {
 		this.departureDateTime = departureDateTime;
 	}
 
-	public static String getArrivalDateTime() {
+	public String getArrivalDateTime() {
 		return arrivalDateTime;
 	}
 
@@ -76,15 +70,11 @@ public abstract class Ticket {
 		this.arrivalDateTime = arrivalDateTime;
 	}
 
-	public static Passenger getPassenger() {
-		return passenger;
-	}
-
 	public void setPassenger(Passenger passenger) {
 		this.passenger = passenger;
 	}
 
-	public static String getSetaNo() {
+	public  String getSetaNo() {
 		return setaNo;
 	}
 
@@ -92,7 +82,7 @@ public abstract class Ticket {
 		this.setaNo = setaNo;
 	}
 
-	public static float getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
@@ -100,7 +90,7 @@ public abstract class Ticket {
 		this.price = price;
 	}
 
-	public static boolean isCancelled() {
+	public boolean isCancelled() {
 		return cancelled;
 	}
 
@@ -109,13 +99,19 @@ public abstract class Ticket {
 	}
 	
 	public String checkStatus() {
-		return "";
+		if (cancelled==true)
+			return "Cancelled";
+		else
+			return "Confirmed";
 	}
 	
 	public int getflightDuration() {
-		return 0;
+		return Integer.parseInt(arrivalDateTime)-Integer.parseInt(departureDateTime);
 	}
+	
 	public void cancel() {
-		
+		cancelled=true;
+		int x=flight.getBookedSeats();
+		flight.setBookedSeats(x-1);
 	}
 }
